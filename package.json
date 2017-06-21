@@ -1,0 +1,19 @@
+{
+  "name": "iris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/service.js",
+  "bin": {
+    "iris": "run.js"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node bin/run.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suhail Taj Shaik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
