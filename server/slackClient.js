@@ -28,12 +28,13 @@ const onConnected = () => {
 
 // Handle on message
 const handleOnMessage = (message) => {
-
+    console.log(message);
 }
 
 module.exports.init = function slackClient(bot_token, logLevel) {
     rtm = new RtmClient(bot_token, { logLevel: logLevel });
     addAuthenticatedHandler(rtm, handleOnAuthenticated);
+    rtm.on(RTM_EVENTS.MESSAGE, handleOnMessage);
     return rtm;
 }
 
