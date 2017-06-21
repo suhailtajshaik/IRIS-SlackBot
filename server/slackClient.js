@@ -12,6 +12,7 @@ const handleOnAuthenticated = (rtmStartData) => {
         if (c.is_member && c.name === 'general') { channel = c.id }
     }
     console.log(`Logged in as ${rtmStartData.self.name} of team ${rtmStartData.team.name}, but not yet connected to a channel`);
+    onConnected();
 }
 
 const addAuthenticatedHandler = (rtm, handler) => {
@@ -19,8 +20,10 @@ const addAuthenticatedHandler = (rtm, handler) => {
 }
 
 // Send responce to slack on connected
-const handleOnConnected = () => {
+const onConnected = () => {
+    rtm.on(CLIENT_EVENTS.RTM.RTM_CONNECTION_OPENED, () => {
         rtm.sendMessage("Hello!", channel);
+    });
 }
 
 // Handle on message
@@ -31,8 +34,6 @@ const handleOnMessage = (message) => {
 module.exports.init = function slackClient(bot_token, logLevel) {
     rtm = new RtmClient(bot_token, { logLevel: logLevel });
     addAuthenticatedHandler(rtm, handleOnAuthenticated);
-    // handleOnConnected();
-    rtm.on(CLIENT_EVENTS.RTM.RTM_CONNECTION_OPENED, handleOnConnected)
     return rtm;
 }
 
