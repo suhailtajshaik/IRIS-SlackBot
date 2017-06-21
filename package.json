@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node bin/run.js",
+    "start": "yarn install && node bin/run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Suhail Taj Shaik",
