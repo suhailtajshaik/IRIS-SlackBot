@@ -6,7 +6,6 @@
   "bin": {
     "technoroit": "run.js"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "yarn install && node bin/run.js",
     "test": "echo \"Error: no test specified\" && exit 1",
