@@ -25,10 +25,27 @@ const handleOnConnected = () => {
 
 // Handle on message
 const handleOnMessage = (message) => {
-    console.log(message);
-    rtm.sendMessage("This is test message", message.channel, () => {
-        // optionally, you can supply a callback to execute once the message has been sent
-    });
+    if (!message.subtype) {
+        console.log(message);
+        rtm.sendMessage(message.text, message.channel, () => {
+            // optionally, you can supply a callback to execute once the message has been sent
+        });
+    } else {
+        console.log(message);
+        // Edit
+        if (message.subtype === 'message_changed') {
+            rtm.sendMessage("I can catch, if you *edit* your message !", message.channel, () => {
+                // optionally, you can supply a callback to execute once the message has been sent
+            });
+        }
+        // Delete
+        if (message.subtype === 'message_deleted') {
+            rtm.sendMessage("I can catch, if you *delete* your message !", message.channel, () => {
+                // optionally, you can supply a callback to execute once the message has been sent
+            });
+        }
+    }
+
 }
 
 module.exports.init = function slackClient(bot_token, logLevel) {
