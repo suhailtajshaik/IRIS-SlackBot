@@ -26,6 +26,9 @@ const handleOnConnected = () => {
 // Handle on message
 const handleOnMessage = (message) => {
     console.log(message);
+    rtm.sendMessage("This is test message", message.channel, () => {
+        // optionally, you can supply a callback to execute once the message has been sent
+    });
 }
 
 module.exports.init = function slackClient(bot_token, logLevel) {
