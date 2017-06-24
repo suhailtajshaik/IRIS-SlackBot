@@ -3,9 +3,9 @@
 ### How to run
 
 #### local development :
-    ```
-    $ yarn start
-    ```
+```
+$ yarn start
+```
 
 #### local docker :
 1. Make sure docker is started.
