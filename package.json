@@ -1,20 +1,26 @@
 {
-  "name": "iris",
+  "name": "technoroit",
   "version": "1.0.0",
   "description": "",
   "main": "server/service.js",
   "bin": {
-    "iris": "run.js"
+    "technoroit": "run.js"
   },
   "devDependencies": {},
   "scripts": {
     "start": "yarn install && node bin/run.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:build": "docker build -t suhailtaj/slack-bot .",
+    "docker:run": "docker run --name technoroit -d -p 3000:3000 suhailtaj/slack-bot",
+    "docker": "yarn docker:build && yarn docker:run"
   },
   "author": "Suhail Taj Shaik",
   "license": "ISC",
   "dependencies": {
     "@slack/client": "^3.10.0",
     "express": "^4.15.3"
+  },
+  "engines": {
+    "node": ">=6.9.2"
   }
 }
