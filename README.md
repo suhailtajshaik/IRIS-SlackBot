@@ -1,4 +1,4 @@
-# IRIS-SlackBot
+# technoroit-SlackBot
 
 ### How to run
 ```
